@@ -4,7 +4,7 @@
 function mostrarDetJugadores(){
 
  $detalleurl = $_POST['detalleURL'];
- 
+
  echo  $detalleurl;
 
 
@@ -13,8 +13,8 @@ $array = json_decode($dataFile,true);
 
  echo "</br>" ."</br>";
  //print_r($array);
- 
- 
+
+
 echo " <div class='container', style='background: blue-sky;'>
  <h1>Detalle Jugador NBA </h1>
 <table class='table table-bordered'>
@@ -34,17 +34,17 @@ echo " <div class='container', style='background: blue-sky;'>
   	<tbody>";
 
 	global $jugador;
-	
-	
+
+
 	echo '<tr>';
 
-	
+
 	foreach($array as $posicion=>$jugador)
 	{
 	echo '<td>'.$jugador .'</td>';
 	}
 	$detalle = "<form class='form-inline' action='detalle.php' method='post'>
-  		<input type='hidden' name='id' value='".$array["id"]."'/> 
+  		<input type='hidden' name='id' value='".$array["id"]."'/>
 		<input type='hidden' name='nombre' value='".$array["first_name"]."'/>
 		<input type='hidden' name='AlturaPies' value='".$array["height_feet"]."'/>
 		<input type='hidden' name='AlturaPulg' value='".$array["height_inches"]."'/>
@@ -75,13 +75,13 @@ echo   "<tbody>
  <!-- Bootstrap CSS -->
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
- <title>Detalle Jugador NBA!</title>
+ <title>Detalle WS Jugador NBA!</title>
  </head>
  <body>
 
 
  <?php mostrarDetJugadores(); ?>
- 
+
 <div class="container">
  <form>
   <div class="form-row">
@@ -106,7 +106,7 @@ echo   "<tbody>
     <label for="inputAddress2">Datos del Equipo</label>
     <input type="text" class="form-control" id="datosequipo" placeholder="Datos del equipo" value="<?php $_POST['DatEquipo']?>"/>
   </div>
-  
+
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Apellido</label>
@@ -132,7 +132,7 @@ echo   "<tbody>
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
- 
+
  </div>
 
  <!-- Optional JavaScript -->
