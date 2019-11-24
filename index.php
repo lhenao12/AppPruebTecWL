@@ -25,7 +25,7 @@ echo " <div class='container', style='background: blue-sky;'>
   	<tbody>";
 
 	global $id;
-
+	
 for($i=0;$i<count($array["data"]);$i++){
 	$id = $array["data"][$i]["id"];
     $nombre = $array["data"][$i]["first_name"];
@@ -33,19 +33,19 @@ for($i=0;$i<count($array["data"]);$i++){
 	$posicion = $array["data"][$i]["position"];
 	(int)$peso = $array["data"][$i]["weight_pounds"];
 	$detalle = "<form class='form-inline' action='detalle.php' method='post'>
-  		<input type='hidden' name='detalleURL' value='https://www.balldontlie.io/api/v1/players/".$id."'/>
+  		<input type='hidden' name='detalleURL' value='https://www.balldontlie.io/api/v1/players/".$id."'/> 
 		<button type = 'submit' name ='submit' class='btn btn-primary my-1'>Detalle Jugador</button>
 		</form>";
-
+	
 	if($peso == null or peso == ''){ $peso = 0;}
-
+	
 	/*if($peso >= $pesoJugador )
 	{echo "valor peso: " . $peso."</br>";}else{}*/
-
-
+	
+	
 	if(  $posicionJugador == '' and  $pesoJugador == '')
-
-		echo "
+	
+		echo "  
 			<tr>
 			  <th scope='row'>".$id."</th>
 			  <td>".$nombre."</td>
@@ -54,12 +54,12 @@ for($i=0;$i<count($array["data"]);$i++){
 			  <td>".$peso."</td>
 			  <td>".$detalle."</td>
 			</tr>";
-
-
-
+	 
+			
+			
 	  else if($posicionJugador == $posicion  and   $pesoJugador >= $peso)  /*or $pesoJugador  <=  $peso ))*/{
-
-			echo "
+	  
+			echo "  
 			<tr>
 			  <th scope='row'>".$id."</th>
 			  <td>".$nombre."</td>
@@ -68,10 +68,10 @@ for($i=0;$i<count($array["data"]);$i++){
 			  <td>".$peso."</td>
 			  <td>".$detalle."</td>
 			</tr>";
-
+			
 	  }else if($posicionJugador == ''  and  $peso > $pesoJugador  )  /*or $peso <  $pesoJugador))*/{
-
-		echo "
+	  
+		echo "  
 			<tr>
 			  <th scope='row'>".$id."</th>
 			  <td>".$nombre."</td>
@@ -82,8 +82,8 @@ for($i=0;$i<count($array["data"]);$i++){
 			</tr>";
 
 	  }else if( $posicionJugador == $posicion  and $pesoJugador == ''){
-
-					echo "
+	  
+					echo "  
 			<tr>
 			  <th scope='row'>".$id."</th>
 			  <td>".$nombre."</td>
@@ -93,7 +93,7 @@ for($i=0;$i<count($array["data"]);$i++){
 			  <td>".$detalle."</td>
 			</tr>";
 
-
+	  
 	  }
     //$ListaPlayers =  $id ." - ". $nombre ." - ". $apellido ." - ". $posicion ." - ". $peso . $detalle;
 	//$ListaPlayers = array($id, $nombre, $apellido, $posicion, $peso, $detalle);
@@ -117,11 +117,11 @@ echo   "<tbody>
  <!-- Bootstrap CSS -->
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
- <title> WS Jugadores NBA!</title>
+ <title>Jugadores NBA!</title>
  </head>
  <body>
  <div>
-
+ 
  <form class="form-inline" action="index.php" method="post">
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Busqueda Por Peso</label>
   <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="peso">
@@ -129,7 +129,7 @@ echo   "<tbody>
     <option value="0"> menores 200 kg</option>
     <option value="201">mayores de 200 kg</option>
   </select>
-
+  
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Busqueda Por Posicion</label>
   <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="posicion">
     <option selected> </option>
@@ -137,12 +137,12 @@ echo   "<tbody>
     <option value="F">F</option>
 	<option value="G">G</option>
   </select>
-
+  
   <button type="submit" name="submit" class="btn btn-primary my-1">Filtrar Jugador</button>
 </form>
 
  <?php mostrarJugadores(); ?>
-
+ 
  </div>
 
  <!-- Optional JavaScript -->
